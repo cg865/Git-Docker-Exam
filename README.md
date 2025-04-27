@@ -14,5 +14,7 @@ docker build -t convert_image_to_pdf .
 
 Run the container with a volume mount for persistent data:
 
-docker run -it -v $(pwd)/images:/app/images convert_image_to_pdf /app/images
+docker run -it --rm -v $(pwd)/images:/app/images convert_image_to_pdf /app/images
 
+docker run -it --rm -e PDF_NAME=chaviPdf -v $(pwd)/images:/app/images -v $(pwd)/output:/app/output convert_image_to_pdf /
+app/images
